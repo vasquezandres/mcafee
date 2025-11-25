@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="es-419">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Solicitar tu licencia McAfee · Solutech Panamá</title>
+  <link rel="canonical" href="https://www.mcafee.com.pa/solicitar-licencia.html" />
+  <meta name="description" content="Guía paso a paso para solicitar tu licencia McAfee en Panamá. Completa el formulario o contáctanos por WhatsApp para instalación inmediata." />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="/css/styles.css">
+  <script defer src="/js/app.js"></script>
+</head>
+
+<body>
+  <div data-include="header.html"></div>
+
+  <main class="wrap">
+    <section class="card section">
+      <h1>Cómo solicitar tu licencia McAfee</h1>
+      <p class="sub">Sigue estos pasos para obtener tu licencia y recibir instalación guiada remota con Solutech Panamá.</p>
+
+      <ol class="steps-guide">
+        <li>
+          <span class="icon"><i class="fa-solid fa-cart-shopping"></i></span>
+          <div>
+            <h3>1. Elige tu licencia</h3>
+            <p>Selecciona entre <a href="/licencias-1.html">1 usuario</a> o <a href="/licencias-10.html">10 dispositivos</a> según tus necesidades.</p>
+          </div>
+        </li>
+
+        <li>
+          <span class="icon"><i class="fa-solid fa-hand-holding-dollar"></i></span>
+          <div>
+            <h3>2. Realiza el pago</h3>
+            <p>Usa cualquiera de nuestros <a href="/metodos-de-pago.html">métodos de pago disponibles</a>: Banco General, Yappy, Nequi o PayPal.</p>
+          </div>
+        </li>
+
+        <li>
+          <span class="icon"><i class="fa-solid fa-file-invoice"></i></span>
+          <div>
+            <h3>3. Envía tu comprobante</h3>
+            <p>Envía tu comprobante por WhatsApp o con el formulario de abajo para activar tu licencia.</p>
+          </div>
+        </li>
+
+        <li>
+          <span class="icon"><i class="fa-solid fa-laptop-medical"></i></span>
+          <div>
+            <h3>4. Instalación guiada</h3>
+            <p>Un técnico se conecta contigo vía <a href="/instalacion-remota.html">AnyDesk, RustDesk o HopToDesk</a> y deja tu equipo protegido.</p>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <section class="card section">
+      <h2>Formulario de solicitud</h2>
+      <form id="solicitudForm" class="formulario">
+        <div class="form-group">
+          <label for="nombre">Nombre completo</label>
+          <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre y apellido">
+        </div>
+
+        <div class="form-group">
+          <label for="correo">Correo electrónico</label>
+          <input type="email" id="correo" name="correo" required placeholder="ejemplo@correo.com">
+        </div>
+
+        <div class="form-group">
+          <label for="telefono">Teléfono / WhatsApp</label>
+          <input type="tel" id="telefono" name="telefono" required placeholder="+507 6888-6778">
+        </div>
+
+        <div class="form-group">
+          <label for="tipo">Tipo de licencia</label>
+          <select id="tipo" name="tipo" required>
+            <option value="">Selecciona...</option>
+            <option value="1 usuario">1 usuario</option>
+            <option value="10 dispositivos">10 dispositivos</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="mensaje">Mensaje adicional (opcional)</label>
+          <textarea id="mensaje" name="mensaje" rows="3"></textarea>
+        </div>
+
+        <button type="submit" class="btn">Enviar solicitud</button>
+      </form>
+
+      <div id="confirmacion" class="form-success" style="display:none;">
+        <i class="fa-solid fa-circle-check"></i> ¡Tu solicitud fue enviada con éxito!
+      </div>
+
+      <div class="cta-row" style="margin-top:20px;">
+        <a class="btn ghost" href="https://wa.me/50768886778" target="_blank" rel="noopener">
+          <i class="fa-brands fa-whatsapp"></i> Contactar por WhatsApp
+        </a>
+      </div>
+    </section>
+  </main>
+  <a class="wa-fab" href="https://wa.me/50768886778?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20McAfee"
+     target="_blank" rel="noopener" aria-label="Chatear por WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+  <div data-include="footer.html"></div>
+
+  <script>
+    document.getElementById('solicitudForm').addEventListener('submit', function(e){
+      e.preventDefault();
+      document.getElementById('solicitudForm').style.display='none';
+      document.getElementById('confirmacion').style.display='block';
+    });
+  </script>
+</body>
+</html>

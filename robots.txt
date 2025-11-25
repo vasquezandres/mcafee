@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://www.mcafee.com.pa/sitemap.xml
