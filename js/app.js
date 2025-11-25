@@ -33,7 +33,55 @@
     nav.querySelectorAll("a").forEach(a => a.addEventListener("click", () => nav.classList.remove("open")));
   }
 
+  function initReviewsCarousel() {
+    const scroller = document.querySelector(".reviews-scroller");
+    if (!scroller) return;
+
+    const track = scroller.querySelector(".reviews-track");
+    const cards = Array.from(track.children);
+
+    if (cards.length <= 1) return;
+
+    let index = 0;
+
+    function calculateWidth() {
+      const first = cards[0];
+      return first.getBoundingClientRect().width + 16; // gap incluido
+    }
+
+    function update() {
+      const width = calculateWidth();
+      track.style.transform = `translateX(${-index * width}px)`;
+    }
+
+    // Movimiento automático
+    let interval = setInterval(() => {
+      index = (index + 1) % cards.length;
+      update();
+    }, 6000);
+
+    // Botón siguiente
+    document.getElementById("reviews-next")?.addEventListener("click", () => {
+      clearInterval(interval);
+      index = (index + 1) % cards.length;
+      update();
+    });
+
+    // Botón anterior
+    document.getElementById("reviews-prev")?.addEventListener("click", () => {
+      clearInterval(interval);
+      index = (index - 1 + cards.length) % cards.length;
+      update();
+    });
+
+    // Recalcular en resize
+    window.addEventListener("resize", () => requestAnimationFrame(update));
+  }
+
+
   document.addEventListener("DOMContentLoaded", () => {
     document.querySelectorAll("[data-include]").forEach(injectInclude);
+    initReviewsCarousel();
   });
 })();
+
