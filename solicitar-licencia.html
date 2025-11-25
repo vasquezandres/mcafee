@@ -6,6 +6,7 @@
   <title>Solicitar tu licencia McAfee · Solutech Panamá</title>
   <link rel="canonical" href="https://www.mcafee.com.pa/solicitar-licencia.html" />
   <meta name="description" content="Guía paso a paso para solicitar tu licencia McAfee en Panamá. Completa el formulario o contáctanos por WhatsApp para instalación inmediata." />
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css">
@@ -88,12 +89,32 @@
           <textarea id="mensaje" name="mensaje" rows="3"></textarea>
         </div>
 
+        <div class="cf-turnstile"
+            data-sitekey="0x4AAAAAACC56l10qMHVO2sd"
+            style="margin-top: 12px;">
+        </div>
+
         <button type="submit" class="btn">Enviar solicitud</button>
       </form>
 
       <div id="confirmacion" class="form-success" style="display:none;">
-        <i class="fa-solid fa-circle-check"></i> ¡Tu solicitud fue enviada con éxito!
+        <i class="fa-solid fa-circle-check"></i>
+        ¡Tu solicitud fue enviada con éxito!
+
+        <p style="margin-top: 12px;">
+          Ahora puedes realizar tu pago de forma segura con PayPal:
+        </p>
+
+        <a href="https://www.paypal.com/ncp/payment/BAP2B6223DUD4"
+          target="_blank"
+          rel="noopener"
+          class="btn paypal"
+          style="margin-top: 10px; display: inline-block;">
+          <i class="fa-brands fa-paypal"></i> 
+          Pagar licencia con PayPal
+        </a>
       </div>
+
 
       <div class="cta-row" style="margin-top:20px;">
         <a class="btn ghost" href="https://wa.me/50768886778" target="_blank" rel="noopener">
@@ -109,11 +130,63 @@
   <div data-include="footer.html"></div>
 
   <script>
-    document.getElementById('solicitudForm').addEventListener('submit', function(e){
+  (function () {
+    const SCRIPT_URL =
+      "https://script.google.com/macros/s/AKfycbyJyblqviFaiI-JqR4Zs2XCsNZqCVY_NL8wD5OGiYlMlySKpPmegDizWeT2WNA_T3MEtg/exec";
+
+    const form = document.getElementById("solicitudForm");
+    const confirmacion = document.getElementById("confirmacion");
+
+    if (!form) return;
+
+    const submitBtn =
+      form.querySelector('button[type="submit"]') ||
+      form.querySelector('input[type="submit"]');
+
+    form.addEventListener("submit", function (e) {
       e.preventDefault();
-      document.getElementById('solicitudForm').style.display='none';
-      document.getElementById('confirmacion').style.display='block';
+
+      if (!submitBtn) return;
+
+      const originalText = submitBtn.textContent || submitBtn.value;
+      submitBtn.disabled = true;
+
+      if (submitBtn.tagName === "BUTTON") {
+        submitBtn.textContent = "Enviando...";
+      } else {
+        submitBtn.value = "Enviando...";
+      }
+
+      const formData = new FormData(form);
+
+      fetch(SCRIPT_URL, {
+        method: "POST",
+        body: formData,
+        mode: "no-cors",
+      })
+        .then(() => {
+          form.style.display = "none";
+          confirmacion.style.display = "block";
+          form.reset();
+        })
+        .catch((err) => {
+          console.error("Error:", err);
+          alert(
+            "Hubo un problema al enviar tu solicitud. Intenta nuevamente."
+          );
+        })
+        .finally(() => {
+          submitBtn.disabled = false;
+          if (submitBtn.tagName === "BUTTON") {
+            submitBtn.textContent = originalText;
+          } else {
+            submitBtn.value = originalText;
+          }
+        });
     });
+  })();
   </script>
+
+
 </body>
 </html>
