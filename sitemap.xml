@@ -1,9 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://www.mcafee.com.pa/</loc><changefreq>monthly</changefreq><priority>1.0</priority></url>
-  <url><loc>https://www.mcafee.com.pa/solicitar-licencia.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://www.mcafee.com.pa/licencias-1.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.mcafee.com.pa/licencias-10.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.mcafee.com.pa/instalacion-remota.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.mcafee.com.pa/metodos-de-pago.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url>
+    <loc>https://mcafee.com.pa/</loc>
+    <lastmod>2026-02-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <url>
+    <loc>https://mcafee.com.pa/mcafee-panama.html</loc>
+    <lastmod>2026-02-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://mcafee.com.pa/solicitar-licencia.html</loc>
+    <lastmod>2026-02-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://mcafee.com.pa/licencias-1.html</loc>
+    <lastmod>2026-02-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://mcafee.com.pa/licencias-10.html</loc>
+    <lastmod>2026-02-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://mcafee.com.pa/instalacion-remota.html</loc>
+    <lastmod>2026-02-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://mcafee.com.pa/metodos-de-pago.html</loc>
+    <lastmod>2026-02-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
 </urlset>

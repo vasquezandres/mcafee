@@ -85,3 +85,83 @@
   });
 })();
 
+
+
+// === Licencias dropdown: hover en desktop + click en móvil + cierre con delay 200ms ===
+(() => {
+  const isDesktopHover = () =>
+    window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+
+  let closeTimer = null;
+
+  const openWrap = (wrap) => {
+    if (!wrap) return;
+    if (closeTimer) clearTimeout(closeTimer);
+    wrap.classList.add("is-open");
+    const a = wrap.querySelector(".nav-licencias-link");
+    if (a) a.setAttribute("aria-expanded", "true");
+  };
+
+  const closeWrap = (wrap, delay = 200) => {
+    if (!wrap) return;
+    if (closeTimer) clearTimeout(closeTimer);
+    closeTimer = setTimeout(() => {
+      wrap.classList.remove("is-open");
+      const a = wrap.querySelector(".nav-licencias-link");
+      if (a) a.setAttribute("aria-expanded", "false");
+    }, delay);
+  };
+
+  // Hover (solo desktop)
+  document.addEventListener("mouseenter", (e) => {
+    if (!isDesktopHover()) return;
+    const wrap = e.target.closest?.(".nav-licencias");
+    if (wrap) openWrap(wrap);
+  }, true);
+
+  document.addEventListener("mouseleave", (e) => {
+    if (!isDesktopHover()) return;
+    const wrap = e.target.closest?.(".nav-licencias");
+    if (wrap) closeWrap(wrap, 200);
+  }, true);
+
+  // Click toggle (principalmente móvil)
+  document.addEventListener("click", (e) => {
+    const link = e.target.closest?.(".nav-licencias-link");
+
+    // Click en Licencias
+    if (link) {
+      // IMPORTANTÍSIMO: en móvil evita que el click cierre el menú hamburguesa
+      if (!isDesktopHover()) e.stopPropagation();
+
+      e.preventDefault();
+      const wrap = link.closest(".nav-licencias");
+      if (!wrap) return;
+
+      if (!isDesktopHover()) {
+        const willOpen = !wrap.classList.contains("is-open");
+
+        // Cierra otros dropdowns abiertos
+        document.querySelectorAll(".nav-licencias.is-open").forEach((w) => {
+          if (w !== wrap) closeWrap(w, 0);
+        });
+
+        if (willOpen) openWrap(wrap);
+        else closeWrap(wrap, 0);
+      }
+      return;
+    }
+
+    // Click fuera: cerrar inmediato
+    document.querySelectorAll(".nav-licencias.is-open").forEach((wrap) => {
+      if (!wrap.contains(e.target)) closeWrap(wrap, 0);
+    });
+  }, true);
+
+  // Escape cierra
+  document.addEventListener("keydown", (e) => {
+    if (e.key !== "Escape") return;
+    document.querySelectorAll(".nav-licencias.is-open").forEach((wrap) => closeWrap(wrap, 0));
+  });
+})();
+
