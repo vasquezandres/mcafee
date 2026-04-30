@@ -1,6 +1,14 @@
-http://www.mcafee.com.pa/* https://mcafee.com.pa/:splat 301
-http://mcafee.com.pa/* https://mcafee.com.pa/:splat 301
-https://www.mcafee.com.pa/* https://mcafee.com.pa/:splat 301
-/home           /               301
-/index          /               301
-/index.html     /               301
+# Forzar HTTPS y dominio canónico
+http://www.mcafee.com.pa/*    https://mcafee.com.pa/:splat   301
+http://mcafee.com.pa/*        https://mcafee.com.pa/:splat   301
+https://www.mcafee.com.pa/*   https://mcafee.com.pa/:splat   301
+
+# Redirects internos
+/home          /                 301
+/index         /                 301
+/index.html    /                 301
+/contact       /contacto.html    301
+/about         /sobre-nosotros.html  301
+
+# Compatibilidad con URL antigua
+/licencias     /licencias-10.html 301

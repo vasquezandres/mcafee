@@ -1,4 +1,15 @@
 User-agent: *
 Allow: /
 
+# Bloquear bots maliciosos conocidos / scrapers de IA agresivos
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+# Sitemap
 Sitemap: https://mcafee.com.pa/sitemap.xml

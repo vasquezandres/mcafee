@@ -1,8 +1,17 @@
+<!-- Aviso reseller (visible en TODAS las páginas, anti-phishing) -->
+<div class="reseller-bar" role="note" aria-label="Aviso de transparencia">
+  <strong>Sitio operado por Solutech Panamá</strong> — revendedor independiente. No es el sitio oficial de McAfee. Sitio oficial: <a href="https://www.mcafee.com" target="_blank" rel="noopener nofollow">mcafee.com</a>.
+</div>
+
 <header class="site-header">
   <div class="nav-wrap">
     <a class="brand" href="/" aria-label="Inicio - Solutech Panamá">
-      <img src="https://cdn.mcafee.com.pa/mcafee-logo.webp" alt="Licencias McAfee" width="36" height="36" loading="eager" decoding="async" />
-      <span>Solutech Panamá</span>
+      <!-- Logo de Solutech (texto). Si más adelante tienes un SVG/PNG propio, reemplaza este span por <img>. -->
+      <span style="display:inline-flex;align-items:center;gap:8px;">
+        <span aria-hidden="true" style="display:inline-grid;place-items:center;width:34px;height:34px;border-radius:9px;background:linear-gradient(135deg,#ff1748,#e11d48);color:#fff;font-weight:900;font-size:15px;letter-spacing:.02em;">S</span>
+        <span>Solutech Panamá</span>
+      </span>
+      <span class="brand-badge">Sitio independiente</span>
     </a>
 
     <button type="button" class="nav-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="site-nav">
@@ -14,28 +23,28 @@
 
       <span class="nav-licencias">
         <a href="/licencias-10.html" class="nav-licencias-link" aria-haspopup="true" aria-expanded="false">
-          Licencias McAfee
+          Licencias
         </a>
 
-        <span class="nav-licencias-menu" role="menu" aria-label="Licencias McAfee">
+        <span class="nav-licencias-menu" role="menu" aria-label="Licencias">
           <a href="/licencias-1.html" role="menuitem">1 PC</a>
           <a href="/licencias-10.html" role="menuitem">10 dispositivos</a>
           <a href="https://www.mcafee.com/consumer/es-mx/ipz/r2d/flows/retailredemption.html"
             target="_blank"
-            rel="noopener">
-            <i class="fa-solid fa-key"></i> Activar
+            rel="noopener nofollow">
+            <i class="fa-solid fa-key"></i> Activar (sitio oficial)
           </a>
           <a href="https://id.mcafee.com/login"
             target="_blank"
-            rel="noopener">
-            <i class="fa-solid fa-right-to-bracket"></i> Iniciar sesión
+            rel="noopener nofollow">
+            <i class="fa-solid fa-right-to-bracket"></i> Iniciar sesión (sitio oficial)
           </a>
         </span>
       </span>
 
       <a href="/instalacion-remota.html">Instalación remota</a>
       <a href="/metodos-de-pago.html">Métodos de pago</a>
-      <a href="/solicitar-licencia.html">Solicitar licencia</a>
+      <a href="/sobre-nosotros.html">Sobre nosotros</a>
       <a href="/contacto.html">Contacto</a>
     </nav>
   </div>
